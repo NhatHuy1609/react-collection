@@ -22,7 +22,7 @@ const Public = () => {
         </address>
       </main>
       <footer className='cursor-pointer rounded-lg bg-[#1e293b] p-[12px] hover:opacity-70'>
-        <Link to='/login' className='font-semibold text-slate-100'>
+        <Link to='/login' className='block w-full font-semibold text-slate-100'>
           -&gt; Go to Employee Login Page
         </Link>
       </footer>

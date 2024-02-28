@@ -32,9 +32,9 @@ const customFetchBase: BaseQueryFn<
     }, api, extraOptions)
 
     if (refreshResult.data) {
-      const { userName: name, token: accessToken, refreshToken } = refreshResult.data as any
+      const { user, accessToken, refreshToken } = refreshResult.data as any
       // Store the new token
-      api.dispatch(setCredentials({ name, accessToken, refreshToken }))
+      api.dispatch(setCredentials({ user, accessToken, refreshToken }))
       // Retry the initial query
       await baseQuery(args, api, extraOptions)
     } else {
