@@ -7,7 +7,7 @@ interface IAuthState {
   refreshToken: string | null
 }
 
-interface IUser {
+export interface IUser {
   name: string
   email: string
 }
@@ -39,4 +39,5 @@ export default authSlice.reducer
 
 export const selectCurrentUser = (state: RootState) => state.auth.user
 export const selectCurrentToken = (state: RootState) => state.auth.accessToken
+export const selectRefreshToken = (state: RootState) => state.auth.refreshToken
 

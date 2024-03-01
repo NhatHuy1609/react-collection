@@ -1,6 +1,6 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { useAppSelector } from '~/JWT_Authentication_RTK/hooks/store'
-import { selectCurrentUser } from '~/JWT_Authentication_RTK/redux/features/authSlice'
+import { useAppSelector } from '../../hooks/store'
+import { selectCurrentUser } from '../../redux/features/authSlice'
 
 const RequireAuth = () => {
   const user = useAppSelector(selectCurrentUser)

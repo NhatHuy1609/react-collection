@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { 
   FetchBaseQueryError, 
   FetchArgs, 
@@ -7,7 +7,7 @@ import { RootState } from '../store'
 import { setCredentials, logOut  } from '../features/authSlice'
 
 const baseQuery = fetchBaseQuery({ 
-  baseUrl: 'http://localhost:5046/swagger/v1/api',
+  baseUrl: 'http://localhost:5046/api',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.accessToken
@@ -27,6 +27,7 @@ const customFetchBase: BaseQueryFn<
   if (result.error && result.error.status === 401) {
     const { accessToken, refreshToken } = (api.getState() as RootState).auth
     const refreshResult = await baseQuery({
+      method: 'POST',
       url: '/account/refresh',
       body: { accessToken, refreshToken }
     }, api, extraOptions)
